@@ -2,7 +2,7 @@
 
 using namespace std;
 /**
- * 
+ * 测试引用和new
  * 
  */
 void New_Test() {
