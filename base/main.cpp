@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <string.h>
 using namespace std;
 /**
  * 测试引用和new
@@ -35,13 +35,48 @@ void fun1(int a, int) {
 class A {
     public:
     int age;
-    
+    A(int age) : age(age){
+       
+    }
     A(){}
-  	A(const A &a) { //拷贝构造函数
-        age = a.age;
-    }  
+  	// A(const A &a) { //拷贝构造函数
+    //     age = a.age;
+    // }  
+
     
 };
+
+class Student {
+public:
+    string name;
+public:
+    static int age;
+public:
+    static int getAge() {
+        int tmp = age;
+        return tmp;
+    }
+private:
+    Student& get_this() {
+        cout << this << sizeof(this) << endl;
+        return *this;
+    }
+
+};
+int Student::age = 5;
+class B {
+    /*常函数不能修改成员变量*/
+    void fun() const { /* this 指针本质是 B *const this 如果函数参数后加const，那么就变成const B *const this*/
+        
+    }
+};
+
+void test03() {
+    
+    cout << Student::getAge() << endl;
+
+}
+
 
 int main() {
     //new test
@@ -51,12 +86,36 @@ int main() {
     // A* arg = new A(100);
     // cout << arg->a << endl;
     // delete(arg);
-      A a;
-    a.age = 6;
-    A b(a);
-    cout << b.age << endl;
-  
-    return 0;
-    return 0;
+    // int arr[10];
+    // char *arr1[10];
+    // char *arr2;
+    // cout << sizeof(arr) << endl;
+    // cout << sizeof(arr1) <<endl;
+    // cout << sizeof(arr2) << endl;
+    // A a(5);
+    // A b(a);
+    // cout << b.age << endl;
+    //test03();
+    // Student s;
+    // cout << " " << sizeof(Student) << endl;
+    // Student a;
+    // Student b;
+    // Student c;
+    //a.get_this().get_this().get_this().get_this();
+    // int a;
+    // int &b = a;
+    // cout << &a << endl;
+    // cout << &b << endl;
+    // Student *student = NULL;
+    // string name = "jjjjj";
+    // student->name = name;
+    // student = new Student();
+    // cout << student->name <<endl;
+    // Student s;
+    // cout << Student::age << endl; //可以直接用类名访问
+    // cout << s.age << endl;
+    // B b;
+    // cout << sizeof(b) << endl;
+    return EXIT_SUCCESS;
 }
 
