@@ -71,11 +71,64 @@ class B {
     }
 };
 
-void test03() {
-    
-    cout << Student::getAge() << endl;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Gay;
+class Gay {
+public:
+    void Gay_fun1();
+};
+class Friend_Test;
+class Friend_Test {
+public:   
+    friend void Gay::Gay_fun1();
+    friend void frient_fun();
+    string str;
+private:
+    int a;
+    int b;
+};
+
+
+void Gay::Gay_fun1() {
+        Friend_Test ft;
+        cout << ft.a << endl;
+        cout << ft.b << endl;
+        cout << ft.str << endl;
+    }
+
+
+
+
+void frient_fun() {
+    Friend_Test ft;
+    cout << ft.a << endl;
+    cout << ft.b << endl;
+    cout << ft.str << endl;
 }
+
 
 
 int main() {
@@ -116,6 +169,7 @@ int main() {
     // cout << s.age << endl;
     // B b;
     // cout << sizeof(b) << endl;
+    
     return EXIT_SUCCESS;
 }
 
