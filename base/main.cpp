@@ -5,19 +5,19 @@ using namespace std;
  * 测试引用和new
  * 
  */
-void Test(int a, int c = 2, int d = 4) {
-    int *p = new int (10);
-    int *p_arr = new int[5]{1, 5, 2, 3, 4};  
-    int *tmp = p_arr;
-    int *&b = p;
-    cout << &b << endl;
-    // for (int i = 0; i < 5; i++) {
-    //    cout << *tmp++ << endl;
-    // }
-    delete p;
-    delete [] p_arr;
-    cout << a + d + c << endl;
-}
+// void Test(int a, int c = 2, int d = 4) {
+//     int *p = new int (10);
+//     int *p_arr = new int[5]{1, 5, 2, 3, 4};  
+//     int *tmp = p_arr;
+//     int *&b = p;
+//     cout << &b << endl;
+//     // for (int i = 0; i < 5; i++) {
+//     //    cout << *tmp++ << endl;
+//     // }
+//     delete p;
+//     delete [] p_arr;
+//     cout << a + d + c << endl;
+// }
 
 //test(100,100)
 void test(int a, int b = 2, int c =5) {
@@ -63,6 +63,11 @@ private:
     }
 
 };
+
+
+
+
+
 int Student::age = 5;
 class B {
     /*常函数不能修改成员变量*/
@@ -122,12 +127,44 @@ void Gay::Gay_fun1() {
 
 
 
-void frient_fun() {
-    Friend_Test ft;
-    cout << ft.a << endl;
-    cout << ft.b << endl;
-    cout << ft.str << endl;
-}
+
+
+
+
+
+class Animal {
+public:
+    int a = 5;
+    string str = "nihao";
+    Animal() {
+        cout << "父类animal的无参构造调用" << endl;
+    }
+
+    ~Animal() {
+        cout << "父类animal的析构函数调用" << endl;
+    }
+
+};
+
+class Dog : public Animal {
+public:
+    
+
+    Dog() {
+         cout << "子类Dog的无参构造调用" << endl;
+    }
+
+    ~Dog() {
+        cout << "子类Dog的析构函数调用" << endl;
+    }
+
+};
+
+
+
+
+
+
 
 
 
@@ -169,6 +206,9 @@ int main() {
     // cout << s.age << endl;
     // B b;
     // cout << sizeof(b) << endl;
+    Dog dog;
+    cout << sizeof(dog) << sizeof(Animal) << endl;
+    cout << sizeof(dog.a) << dog.str << endl;
     
     return EXIT_SUCCESS;
 }

@@ -274,3 +274,33 @@ void main() {
 
 ## 友元函数
 
+1. 类做友元
+2. 全局函数做友元
+3. 成员函数做友元
+
+```c++
+class Gay {
+public:
+    void Gay_fun1();
+};
+class Friend_Test;
+class Friend_Test {
+public:   
+    friend class Gay;	//类做友元
+    friend void Gay::Gay_fun1();//成员函数做友元
+    friend void frient_fun();	//全局函数左右元
+    string str;
+private:
+    int a;
+    int b;
+};
+
+
+void frient_fun() {
+    Friend_Test ft;
+    cout << ft.a << endl;	//访问私有
+    cout << ft.b << endl;	//访问私有
+    cout << ft.str << endl;
+}
+```
+
